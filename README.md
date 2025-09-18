@@ -24,6 +24,7 @@ Access the cloud on cloud.bitzz.de and use the admin panel only locally on port 
 ## Secrets
 
 The secrets are all managed by sops for the whole project. They are encrypted and then commited to git.
+The key file for age should be present in `~/.config/age/sops/keys.txt`. For the editing of secrets to work properly.
 
 ## Technologies and dependencies
 

@@ -1,7 +1,6 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 
 {
-  networking.useDHCP = true;
   networking.networkmanager.enable = true;
   networking.firewall = {
     enable = true;
@@ -12,6 +11,7 @@
 
   security.sudo.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   time.timeZone = "Europe/Berlin";
   #i18n.defaultLocale = "en_US.UTF-8";
@@ -22,7 +22,11 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim git htop curl wget
+    neovim
+    git
+    htop
+    curl
+    wget
     docker-compose
     lazygit
     yazi
