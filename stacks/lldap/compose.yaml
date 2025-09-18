@@ -1,0 +1,18 @@
+#https://github.com/lldap/lldap/blob/main/docs/install.md#with-docker
+
+volumes:
+  lldap_data:
+    driver: local
+
+services:
+  lldap:
+    image: lldap/lldap:stable
+    ports:
+      - "17170:17170"
+    volumes:
+      - "lldap_data:/data"
+    environment:
+      - LLDAP_JWT_SECRET=lJU3983jiojfsljfs98dfhp98ihfw03u2oij2kfja8jf9psdfjioj983k
+      - LLDAP_KEY_SEED=LASKJDFOjojflJFLAKJDFIO38289RU23R83J2RJkkkoij98f2j3f9823f
+      - LLDAP_LDAP_BASE_DN=dc=bitzz,dc=de
+      - LLDAP_LDAP_USER_PASS=admin

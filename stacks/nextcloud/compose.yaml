@@ -1,0 +1,32 @@
+services:
+  nextcloud-aio-mastercontainer:
+    image: ghcr.io/nextcloud-releases/all-in-one:latest
+    init: true
+    restart: always
+    container_name: nextcloud-aio-mastercontainer
+    networks:
+      - caddy
+    labels:
+      caddy: cloud.bitzz.de
+      caddy.reverse_proxy: "{{upstreams 11000}}"
+    volumes:
+      - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    network_mode: bridge
+    ports:
+      - 8088:8080
+    environment:
+      AIO_DISABLE_BACKUP_SECTION: false
+      APACHE_PORT: 11000 # For reverse proxy
+      APACHE_IP_BINDING: 127.0.0.1
+      NEXTCLOUD_DATADIR: /mnt/ncdata
+      NEXTCLOUD_MOUNT: /mnt/ # Allows the Nextcloud container to access the directory on the host
+      NEXTCLOUD_UPLOAD_LIMIT: 16G
+
+volumes:
+  nextcloud_aio_mastercontainer:
+    name: nextcloud_aio_mastercontainer
+
+networks:
+  caddy:
+    external: true

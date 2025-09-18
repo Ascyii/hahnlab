@@ -1,0 +1,28 @@
+#https://github.com/lucaslorentz/caddy-docker-proxy
+
+services:
+  caddy:
+    image: lucaslorentz/caddy-docker-proxy:ci-alpine
+    ports:
+      - 80:80
+      - 443:443/tcp
+      - 443:443/udp
+    environment:
+      - CADDY_INGRESS_NETWORKS=caddy
+      - CADDY_DOCKER_CADDYFILE_PATH=./Caddyfile
+    networks:
+      - caddy
+    extra_hosts:
+      - "host.docker.internal:host-gateway" # Host network
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - caddy_data:/data
+      - ./Caddyfile:/Caddyfile
+    restart: unless-stopped
+
+networks:
+  caddy:
+    external: true
+
+volumes:
+  caddy_data: {}

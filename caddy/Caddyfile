@@ -1,0 +1,9 @@
+dev.bitzz.de {
+	reverse_proxy host.docker.internal:3500
+}
+jonas.bitzz.de {
+	reverse_proxy host.docker.internal:3501
+}
+app.bitzz.de {
+	reverse_proxy host.docker.internal:3502
+}

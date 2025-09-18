@@ -1,4 +1,6 @@
 {
+  description = "HahnLab NixOS main flake";
+
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
 
@@ -10,22 +12,24 @@
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, disko, sops-nix, ... }@inputs: {
-    nixosConfigurations = {
-      gullfoss = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+  outputs = { self, nixpkgs, disko, sops-nix, ... }@inputs:
+    let
+      system = "x86_64-linux";
+
+      # Generic helper
+      mkHost = name: {
+        nixpkgs.lib.nixosSystem {
+        inherit system;
         modules = [
-          ./hosts/gullfoss/configuration.nix
+          ./hosts/${name}/configuration.nix
           disko.nixosModules.disko
+          sops-nix.nixosModules.sops
         ];
-      };
-      rhodo = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./hosts/rhodo/configuration.nix
-          disko.nixosModules.disko
-        ];
+      }};
+    in {
+      nixosConfigurations = {
+        gullfoss = mkHost "gullfoss";
+        rhodo    = mkHost "rhodo";
       };
     };
-  };
 }

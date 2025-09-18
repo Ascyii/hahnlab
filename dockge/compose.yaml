@@ -1,0 +1,19 @@
+services:
+  dockge:
+    image: louislam/dockge:1
+    restart: unless-stopped
+    networks:
+        - caddy
+    labels:
+      caddy: stack.bitzz.de
+      caddy.reverse_proxy: "{{upstreams 5001}}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/admin/data/dockge:/app/data
+      - /home/admin/hahnlab/stacks:/stacks
+    environment:
+      - DOCKGE_STACKS_DIR=/stacks
+
+networks:
+  caddy:
+    external: true
