@@ -1,9 +1,9 @@
-dev.bitzz.de {
+dev.ascyii.de {
 	reverse_proxy host.docker.internal:3500
 }
-jonas.bitzz.de {
+jonas.ascyii.de {
 	reverse_proxy host.docker.internal:3501
 }
-app.bitzz.de {
+app.ascyii.de {
 	reverse_proxy host.docker.internal:3502
 }

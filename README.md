@@ -13,18 +13,23 @@ sudo nix --experimental-features "nix-command flakes" run github:nix-community/d
 
 Install the nixos machine with flakes onto proxmox and make it starting by default.
 
+Note down FQDN and the password from the proxmox installation.
+
 Pull up all the docker fleets.
 
 ## Services 
 
 ### Nextcloud
 
-Access the cloud on cloud.bitzz.de and use the admin panel only locally on port 8088.
+Access the cloud on cloud.ascyii.de and use the admin panel only locally on port 8088.
 
 ## Secrets
 
 The secrets are all managed by sops for the whole project. They are encrypted and then commited to git.
 The key file for age should be present in `~/.config/age/sops/keys.txt`. For the editing of secrets to work properly.
+
+Run to discover the public key of the machine
+nix-shell -p ssh-to-age --run 'cat /etc/ssh/ssh_host_ed25519_key.pub | ssh-to-age'
 
 ## Technologies and dependencies
 

@@ -2,7 +2,6 @@
 
 {
   imports = [ 
-    ./disko.nix
     ./../../modules/common.nix
     ./../../modules/users.nix
   ];

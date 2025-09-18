@@ -1,0 +1,8 @@
+List of domains associated with the lab
+
+ascyii.de 
+cloud.ascyii.de 
+dev.ascyii.de 
+jonas.ascyii.de 
+qrank.ascyii.de 
+app.ascyii.de 

@@ -1,0 +1,5 @@
+Persistent storage for state
+
+- Home folder
+- Nextcloud database and data directory
+- Click configurations
