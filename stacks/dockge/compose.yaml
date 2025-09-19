@@ -9,8 +9,8 @@ services:
       caddy.reverse_proxy: "{{upstreams 5001}}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - /home/admin/data/dockge:/app/data
-      - /home/admin/hahnlab/stacks:/stacks
+      - ./data:/app/data
+      - ./stacks:/stacks
     environment:
       - DOCKGE_STACKS_DIR=/stacks
 

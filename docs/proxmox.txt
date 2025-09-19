@@ -1,0 +1,50 @@
+= First installation steps
+
+Terminal installer without serial.
+
+== Installer options
+
+Country: Germany
+Timezone: Europe/Berlin
+Keyboard layout: U.S. English
+Administrator email: jonashahn1@gmx.net
+Bootdisk filesystem: ext4
+Bootdisk: /dev/nvme0n1
+Management interface: eno1
+Hostname: pvemsi.fritz.box (nick is pvemsi)
+Host IP in CIDR: 192.168.178.83/24
+Gateway 192.168.178.1
+DNS 192.168.178.1
+
+Note down FQDN and the password from the proxmox installation.
+
+Setup the wake on lan mac address for the node.
+The computer can be woken up with the following command broadcasting on the fritz box local network
+wakeonlan -i 192.168.178.255 00:d8:61:0d:1d:23
+
+Edit from the web on http://pvemsi:8006 from the root user.
+
+Only use the root user for the whole configuration and the web interface where its possible.
+
+Remove all the enterprise repos and add free for proxmox and cephs. Then do a full update and upgrade of the system.
+
+Add CT templates with the commands https://pve.proxmox.com/wiki/Linux_Container
+pveam download local debian-13-standard_13.1-1_amd64.tar.zst
+
+Download the debian full iso to the node local storage.
+
+After flashing the new bios the boot options were reset
+and proxmox was set to always continue to boot. The screen said 'recovering boot options'.
+Now the system boots as expected.
+
+Add a hardware remap for the gpu for the datacenter.
+
+== Disko usage for experimental nixos support
+
+To partition the disks run the following command (this will erase all data on the disks specified in the configuration for the machine and should be only run once in the beginning).
+sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- --mode destroy,format,mount ./nixos/hosts/<host>/disko.nix
+
+== Ssh configuration
+
+Enable the ssh root login to add the ssh key of the machine easily and use the copy and paste
+https://linuxconfig.org/enable-ssh-root-login-on-debian-linux-server.

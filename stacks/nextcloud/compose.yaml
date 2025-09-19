@@ -4,11 +4,6 @@ services:
     init: true
     restart: always
     container_name: nextcloud-aio-mastercontainer
-    networks:
-      - caddy
-    labels:
-      caddy: cloud.ascyii.de
-      caddy.reverse_proxy: "{{upstreams 11000}}"
     volumes:
       - nextcloud_aio_mastercontainer:/mnt/docker-aio-config
       - /var/run/docker.sock:/var/run/docker.sock:ro
@@ -26,7 +21,3 @@ services:
 volumes:
   nextcloud_aio_mastercontainer:
     name: nextcloud_aio_mastercontainer
-
-networks:
-  caddy:
-    external: true

@@ -1,0 +1,41 @@
+= Initial installation
+
+Create a new main vm that has access to the gpu and hosts the containers from a debian image.
+Click through the installer and map the nvidia gpu to the vm.
+
+Fix the repos with this https://linux.how2shout.com/how-to-fix-cdrom-debian-gnu-linux-13-1-0-trixie-dvd-error-in-apt/.
+docker volume create portainer_data
+Add the sudo and docker group to the user. Also install sudo.
+
+Install docker
+sudo curl -sSL https://get.docker.com | sh
+
+Run the portainer container https://docs.portainer.io/start/install-ce/server/docker/linux.
+Update the sources to include the non-free software.
+
+Install and configure ddclient for strato
+protocol=dyndns2 \
+usev6=ifv6, if=ens18 \
+#use=web, web=api6.ipify.org \
+server=dyndns.strato.com/nic/update \
+login='example.com' \
+password='password' \
+example.com
+
+Install and start the guest agent for passing the ip addresses
+sudo apt-get install qemu-guest-agent
+sudo systemctl start qemu-guest-agent.service
+
+Install nvidia support that is better then the oss driver preinstalled
+sudo apt install nvidia-driver firmware-misc-nonfree
+sudo apt install build-essential linux-headers-$(uname -r)
+sudo dkms autoinstall
+
+Install the toolkit https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html.
+sudo nvidia-ctk runtime configure --runtime=docker
+sudo systemctl restart docker
+
+Install quality of life packages like tmux and neovim through apt.
+
+Install models of ollama in the open webui container with
+docker exec -it open-webui bash

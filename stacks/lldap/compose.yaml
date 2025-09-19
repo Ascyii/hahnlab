@@ -12,7 +12,7 @@ services:
     volumes:
       - "lldap_data:/data"
     environment:
-      - LLDAP_JWT_SECRET=lJU3983jiojfsljfs98dfhp98ihfw03u2oij2kfja8jf9psdfjioj983k # This was by keyboard smashing generated
-      - LLDAP_KEY_SEED=LASKJDFOjojflJFLAKJDFIO38289RU23R83J2RJkkkoij98f2j3f9823f
+      - LLDAP_JWT_SECRET=secret
+      - LLDAP_KEY_SEED=secret
       - LLDAP_LDAP_BASE_DN=dc=ascyii,dc=de
       - LLDAP_LDAP_USER_PASS=admin

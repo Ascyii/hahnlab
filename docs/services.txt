@@ -1,0 +1,15 @@
+= Service wishlist useful
+
+- Nextcloud
+- Immich
+- Portainer
+- Ollama
+- Torrent
+- Pihole
+- Vaultwarden
+- Nginx proxymanager
+- Kubernetes cluster
+- Filebrowser
+- Home assistant
+- Gitea
+- Ddclient

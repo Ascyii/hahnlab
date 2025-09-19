@@ -1,0 +1,11 @@
+= Configuration
+
+First do a full restore.
+
+Enable wake on lan.
+Enable restore on power off.
+Enable VT-D needed for gpu passthrough.
+
+= Flashing log
+
+Flash the newset bios version from https://www.msi.com/Motherboard/MPG-Z390-GAMING-PRO-CARBON/support#bios. The system rebooted 3 times after flashing but the fourth time was good.
