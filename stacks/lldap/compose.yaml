@@ -1,4 +1,4 @@
-#https://github.com/lldap/lldap/blob/main/docs/install.md#with-docker
+# https://github.com/lldap/lldap/blob/main/docs/install.md#with-docker
 
 volumes:
   lldap_data:
@@ -8,9 +8,9 @@ services:
   lldap:
     image: lldap/lldap:stable
     ports:
-      - "17170:17170"
+      - 17170:17170
     volumes:
-      - "lldap_data:/data"
+      - lldap_data:/data
     environment:
       - LLDAP_JWT_SECRET=secret
       - LLDAP_KEY_SEED=secret

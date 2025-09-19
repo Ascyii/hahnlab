@@ -1,0 +1,21 @@
+services:
+  webdav:
+    image: ghcr.io/hacdias/webdav
+    container_name: webdav
+    networks:
+      - caddy
+    restart: always
+    labels:
+      caddy: dav.ascyii.de
+      caddy.reverse_proxy: "{{upstreams 6065}}"
+    volumes:
+      - ./config.yml:/config.yml # Absolute path for file
+      - storage:/storage
+    command: -c /config.yml
+
+networks:
+  caddy:
+    external: true
+
+volumes:
+  storage: {}

@@ -42,3 +42,5 @@ services:
 volumes:
   ollama: {}
   open-webui: {}
+
+# Navigate to http://localhost:3000/ollama to create the account

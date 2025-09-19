@@ -1,0 +1,22 @@
+# To setup collabora
+# https://github.com/mickael-kerjean/filestash/issues/807#issuecomment-2727211515
+
+services:
+  filestash:
+    container_name: filestash
+    networks:
+      - caddy
+    image: machines/filestash:latest
+    restart: unless-stopped
+    labels:
+      caddy: stash.ascyii.de
+      caddy.reverse_proxy: "{{upstreams 8334}}"
+    volumes:
+      - filestash:/app/data/state/
+
+volumes:
+  filestash: {}
+
+networks:
+  caddy:
+    external: true

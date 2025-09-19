@@ -1,0 +1,20 @@
+services:
+  baikal:
+    image: ckulka/baikal:nginx
+    restart: always
+    networks:
+      - caddy
+    labels:
+      caddy: cal.bitzz.de
+      caddy.reverse_proxy: "{{upstreams 80}}"
+    volumes:
+      - config:/var/www/baikal/config
+      - data:/var/www/baikal/Specific
+
+networks:
+  caddy:
+    external: true
+
+volumes:
+  config: {}
+  data: {}

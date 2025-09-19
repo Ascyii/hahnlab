@@ -1,0 +1,19 @@
+services:
+  maddy:
+    container_name: maddy
+    environment:
+      - MADDY_HOSTNAME=mail.ascyii.de
+      - MADDY_DOMAIN=mail.ascyii.de
+    volumes:
+      - maddydata:/data
+    restart: always
+    ports:
+      - 25:25
+      - 143:143
+      - 465:465
+      - 587:587
+      - 993:993
+    image: foxcpp/maddy:0.7
+
+volumes:
+  maddydata: {}
