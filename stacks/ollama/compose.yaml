@@ -43,4 +43,8 @@ volumes:
   ollama: {}
   open-webui: {}
 
-# Navigate to http://localhost:3000/ollama to create the account
+# Navigate to http://localhost:3000/ollama to create the admin account
+
+# Install models inside the ollama container with
+# docker exec -it ollama bash
+# docker exec -it ollama ollama pull gpt-oss

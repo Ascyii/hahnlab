@@ -17,6 +17,7 @@ services:
       NEXTCLOUD_DATADIR: /mnt/ncdata
       NEXTCLOUD_MOUNT: /mnt/ # Allows the Nextcloud container to access the directory on the host
       NEXTCLOUD_UPLOAD_LIMIT: 16G
+      SKIP_DOMAIN_VALIDATION: true
 
 volumes:
   nextcloud_aio_mastercontainer:
