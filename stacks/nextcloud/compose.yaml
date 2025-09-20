@@ -13,7 +13,7 @@ services:
     environment:
       AIO_DISABLE_BACKUP_SECTION: false
       APACHE_PORT: 11000 # For reverse proxy
-      APACHE_IP_BINDING: 127.0.0.1
+      APACHE_IP_BINDING: 0.0.0.0
       NEXTCLOUD_DATADIR: /mnt/ncdata
       NEXTCLOUD_MOUNT: /mnt/ # Allows the Nextcloud container to access the directory on the host
       NEXTCLOUD_UPLOAD_LIMIT: 16G
