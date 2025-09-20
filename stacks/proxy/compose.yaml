@@ -1,3 +1,5 @@
+# https://github.com/nextcloud/all-in-one/discussions/588#discussioncomment-3040493
+
 services:
   npm:
     image: 'jc21/nginx-proxy-manager:latest'
@@ -9,7 +11,13 @@ services:
     volumes:
       - data:/data
       - encrypt:/etc/letsencrypt
+    networks:
+      - nextcloudserv
 
 volumes:
   data: {}
   encrypt: {}
+
+networks:
+  nextcloudserv:
+    external: true
