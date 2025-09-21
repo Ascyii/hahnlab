@@ -1,1 +1,9 @@
 Got the hahn1.one and ascyii.de domains from strato.
+
+hahn1.one
+
+The following domains have dynamic dns setup
+ascyii.de
+cloud.ascyii.de
+app.ascyii.de 
+qrank.ascyii.de 

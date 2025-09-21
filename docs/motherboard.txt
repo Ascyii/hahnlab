@@ -6,6 +6,12 @@ Enable wake on lan.
 Enable restore on power off.
 Enable VT-D needed for gpu passthrough.
 
+Remember to use the advanced menu and dont change any other settings or document them.
+
 = Flashing log
 
-Flash the newset bios version from https://www.msi.com/Motherboard/MPG-Z390-GAMING-PRO-CARBON/support#bios. The system rebooted 3 times after flashing but the fourth time was good.
+Flash the newset bios version from https://www.msi.com/Motherboard/MPG-Z390-GAMING-PRO-CARBON/support#bios.
+The system rebooted 3 times after flashing but the fourth time was good.
+
+The version is now 7B17v1D released on the 2024-08-09.
+Before it was 7B17v11 from the 2018-10-01. Which is the first version available.

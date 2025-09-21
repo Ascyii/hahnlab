@@ -1,0 +1,11 @@
+# Ldap support
+
+Install the ldap app from the app store in nextcloud.
+
+Start the lldap stack.
+
+Follow this guide to setup https://github.com/lldap/lldap/blob/main/example_configs/nextcloud.md.
+
+The agent name should be uid=admin,ou=people,dc=ascyii,dc=de.
+
+The hostname is just lldap because nextcloud and lldap containers are in the same network.
