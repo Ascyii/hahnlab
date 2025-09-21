@@ -12,12 +12,12 @@ services:
       - data:/data
       - encrypt:/etc/letsencrypt
     networks:
-      - nextcloudserv
+      - nextcloud-aio
 
 volumes:
   data: {}
   encrypt: {}
 
 networks:
-  nextcloudserv:
+  nextcloud-aio:
     external: true
