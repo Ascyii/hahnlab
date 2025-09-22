@@ -1,0 +1,11 @@
+myhosts:
+  hosts:
+    dockerman:
+      ansible_host: dockerman
+      ansible_user: jonas
+    pvemsi:
+      ansible_host: pvemsi
+      ansible_user: root
+  vars:
+    # https://docs.ansible.com/ansible-core/2.18/reference_appendices/interpreter_discovery.html
+    ansible_python_interpreter: auto_silent
